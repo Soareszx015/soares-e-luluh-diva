@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo e Luana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <img src="imagens/foto1.jpg" alt="Foto 1">
+        </div>
+        <div class="mySlides">
+            <img src="imagens/foto2.jpg" alt="Foto 2">
+        </div>
+        <div class="mySlides">
+            <img src="imagens/foto3.jpg" alt="Foto 3">
+        </div>
+        <div class="mySlides">
+            <img src="imagens/foto4.jpg" alt="Foto 4">
+        </div>
+        <div class="mySlides">
+            <img src="imagens/foto5.jpg" alt="Foto 5">
+        </div>
+        <div class="mySlides">
+            <img src="imagens/foto6.jpg" alt="Foto 6">
+        </div>
+    </div>
+
+    <div class="title">Gustavo e Luana</div>
+
+    <div class="romantic-text">
+        <p>É com a garota na foto acima que está ao meu lado</p>
+        <p>que eu quero passar o resto da minha vida.</p>
+        <p>Você é a razão do meu sorriso,</p>
+        <p>e o calor que aquece meu coração.</p>
+        <p>Você é a melhor pessoa que eu já conheci</p>
+        <p>Seu jeito, sua voz, suas brincadeiras me encantam</p>
+        <p>Caminharemos juntos pela vida,</p>
+        <p>porque nosso amor é eterno.</p>
+        <span class="white-text">
+            <p>VOCÊ, SÓ VOCÊ É O MEU VERDADEIRO AMOR</p>
+            <p>VOCÊ DESDE JÁ E PARA TODO O SEMPRE TE AMAREI MINHA VIDA</p>
+            <p> MEU BEM!</p>
+            <p> MEU AMOR!</p>
+            <p> MEU VIVER!</p>
+            <p> MINHA VIDA!</p>
+            <p> MINHA JOIA!</p>
+            <p>MINHA ALEGRIA!</p>
+            <div class="decorative-line">
+            <svg width="100%" height="20" viewBox="0 0 100 20" preserveAspectRatio="none">
+                <path d="M0 10 Q 25 0, 50 10 T 100 10" stroke="black" fill="transparent"/>
+              </svg>
+            </div>
+        </span>
+    </div>
+
+    <div class="mini-title">Juntos há</div>
+    <div class="time-container">
+        <p id="years"></p>
+        <p id="months"></p>
+        <p id="days"></p>
+        <p id="hours"></p>
+        <p id="minutes"></p>
+        <p id="seconds"></p>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 3600); 
+        }
+
+        function calculateTime() {
+            const startDate = new Date('2024-11-09');
+            const now = new Date();
+            const difference = now - startDate;
+
+            const years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365));
+            const months = Math.floor((difference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('years').innerText = `${years} anos`;
+            document.getElementById('months').innerText = `${months} meses`;
+            document.getElementById('days').innerText = `${days} dias`;
+            document.getElementById('hours').innerText = `${hours} horas`;
+            document.getElementById('minutes').innerText = `${minutes} minutos`;
+            document.getElementById('seconds').innerText = `${seconds} segundos`;
+        }
+
+        setInterval(calculateTime, 1000);
+    </script>
+</body>
+</html>
